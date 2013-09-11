@@ -1,0 +1,67 @@
+@charset "utf-8";
+/* CSS Document */
+
+.sliderOutput {
+  font-family: "Open Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 200;
+  letter-spacing: -0.02em;
+  color: #333333;
+  width: 3em; }
+
+p.smallText {
+	font-size:18px;
+	}
+
+#chlorineButton {
+	position: fixed;
+	right: 4em;
+	top: 6em;
+	color: red;
+	z-index: 5;
+}
+
+#dashboardContainer {
+	display: inline-block;
+	left: 0;
+	top: 0;
+	height: 6em;
+	width: 100%;
+	background: white;
+	z-index: 5;
+}
+
+#dashboard {
+  color: #333333;
+  font-family: "Open Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 200;
+  letter-spacing: -0.02em;
+  text-align: center;
+  margin-top:1.25em;
+  width: 100%;
+  left: 50%;
+}
+
+.dashboardSpacer {
+	padding-left: 2em;
+}
+
+#wrapper {
+	width: 100%;
+	height: 100%;
+}
+
+#revealWrapper {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+}
+
+  #feedback { font-size: 1em; }
+  #selectable .ui-selecting { background: #FECA40; }
+  #selectable .ui-selected { background: #F39814; color: white; }
+  #selectable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+  #selectable li { margin: 3px; padding: 0.4em; font-size: 1em; height: 18px; }
+  
+  #wrapper { display: none; }
