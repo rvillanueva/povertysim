@@ -1,7 +1,6 @@
-povertysim
+PennSID Poverty Simulation
 ==========
 
-PennSID Poverty Simulation
 
 Copyright (C) 2013 Penn Society for International Development
 
