@@ -11,9 +11,13 @@ function onLoad(){
 	health=100;
 
 // Job Variables
-		job = new Array(0,0,0),
-		jobIncome = new Array,
-		jobTotalIncome = new Array;
+	    job1 = 0,
+		job2 = 0,
+		job3 = 0,
+		jobIncome1 = 0,
+		jobIncome2 = 0,
+		jobIncome2 = 0,
+		jobTotalIncome = 0;
 		
 		$( "#chlorineButton" ).hide();
 		$( "#childrenContainer" ).hide();
@@ -28,8 +32,6 @@ function onLoad(){
 	$( ".hideOnload").hide();
 	
 	$( "#wrapper").show();
-	
-	dashboardUpdate();
 
 }
 
@@ -55,86 +57,99 @@ function dashboardUpdate(){
 // Jobs Section
   
   function refreshJobTotal() {
-      jobTotal = job[0] + job[1] + job[2];
+      jobTotal = job1 + job2 + job3;
 	  $( "#jobTotal" ).val( jobTotal + "%");
 	  
 	// Set job income patterns.
-	  jobIncome[0] = .2*Math.pow(job[0], 2) + job[1]*1.5;
-	  jobIncome[1] = .1*Math.pow(job[1], 2) + job[2]*3;
-	  jobIncome[2] = .3*Math.pow(job[2], 2) + job[3]*4;
+	  jobIncome1 = .2*Math.pow(job1, 2) + job1*1.5;
+	  jobIncome2 = .1*Math.pow(job2, 2) + job2*3;
+	  jobIncome3 = .3*Math.pow(job3, 2) + job3*4;
+		
+	//	  jobIncome1 = job1;
+	//	  jobIncome2 = job2;
+	//	  jobIncome3 = job3;
 	  
-	  for (var i = 0; i < 3; i++) {
-	  $( "#jobIncomeField" + i ).html( "$" + jobIncome[i] );
-
-	  if (job[i] > 0){
-	  $( "#jobIncomeAverage" + i ).html( "$" + jobIncome[i]/(job[i]+1) );
+	  $( "#jobIncomeField1" ).html( "$" + jobIncome1 );
+	  $( "#jobIncomeField2" ).html( "$" + jobIncome2 );
+	  $( "#jobIncomeField3" ).html( "$" + jobIncome3 );
+	  
+	  if (job1 > 0){
+	  $( "#jobIncomeAverage1" ).html( "$" + jobIncome1/job1 );
 	  }
 	  else {
-		$( "#jobIncomeAverage" + i ).html( "$0");
+		$( "#jobIncomeAverage1" ).html( "$0");
 	  }
 	  
+	  if (job2 > 0){
+	  $( "#jobIncomeAverage2" ).html( "$" + jobIncome2/job2 );
 	  }
-	  jobTotalIncome = jobIncome[0] + jobIncome[1] + jobIncome[2];
+	  else {
+		$( "#jobIncomeAverage2" ).html( "$0");
+	  }
+	  
+	  if (job3 > 0){
+	  $( "#jobIncomeAverage3" ).html( "$" + jobIncome3/job3 );
+	  }
+	  else {
+		$( "#jobIncomeAverage3" ).html( "$0");
+	  }
+	  jobTotalIncome = jobIncome1 + jobIncome2 + jobIncome3;
   }
  
   $(function() {
-	  for (var i = 0; i < 3; i++) {
-    $( "#jobSlider" + i ).slider({
+    $( "#jobSlider1" ).slider({
       value:0,
       min: 0,
       max: 100,
       step: 10,
       slide: function( event, ui ) {
-        $( "#jobAmount" + i ).val( ui.value + "%" );
-		job[i] = ui.value,
-		console.log(i + ' ' + job[i]);
-		console.log('job0, ' + job[0]);
+        $( "#jobAmount1" ).val( ui.value + "%" );
+		job1 = ui.value,
 		refreshJobTotal( );
       },
 	  change: function(event, ui ){
 		  refreshJobTotal();
 	  }
     });
-    $( "#jobAmount" + i).val( $( "#jobSlider" + i).slider( "value" ) + "%" );
-	  }
+    $( "#jobAmount1" ).val( $( "#jobSlider1" ).slider( "value" ) + "%" );
   });
-//
-//  $(function() {
-//    $( "#jobSlider2" ).slider({
-//      value:0,
-//      min: 0,
-//      max: 100,
-//      step: 10,
-//      slide: function( event, ui ) {
-//        $( "#jobAmount2" ).val( ui.value + "%" );
-//		job2 = ui.value,
-//		refreshJobTotal( );
-//      },
-//      change: function(event, ui ){
-//		  refreshJobTotal();
-//	  }
-//    });
-//    $( "#jobAmount2" ).val( $( "#jobSlider2" ).slider( "value" ) + "%" );
-//  });
-//  
-//  
-//  $(function() {
-//    $( "#jobSlider3" ).slider({
-//      value:0,
-//      min: 0,
-//      max: 100,
-//      step: 10,
-//      slide: function( event, ui ) {
-//        $( "#jobAmount3" ).val( ui.value + "%" );
-//		job3 = ui.value,
-//		refreshJobTotal( );
-//      },
-//      change: function(event, ui ){
-//		  refreshJobTotal();
-//      }
-//    });
-//    $( "#jobAmount3" ).val( $( "#jobSlider3" ).slider( "value" ) + "%" );
-//  });
+
+  $(function() {
+    $( "#jobSlider2" ).slider({
+      value:0,
+      min: 0,
+      max: 100,
+      step: 10,
+      slide: function( event, ui ) {
+        $( "#jobAmount2" ).val( ui.value + "%" );
+		job2 = ui.value,
+		refreshJobTotal( );
+      },
+      change: function(event, ui ){
+		  refreshJobTotal();
+	  }
+    });
+    $( "#jobAmount2" ).val( $( "#jobSlider2" ).slider( "value" ) + "%" );
+  });
+  
+  
+  $(function() {
+    $( "#jobSlider3" ).slider({
+      value:0,
+      min: 0,
+      max: 100,
+      step: 10,
+      slide: function( event, ui ) {
+        $( "#jobAmount3" ).val( ui.value + "%" );
+		job3 = ui.value,
+		refreshJobTotal( );
+      },
+      change: function(event, ui ){
+		  refreshJobTotal();
+      }
+    });
+    $( "#jobAmount3" ).val( $( "#jobSlider3" ).slider( "value" ) + "%" );
+  });
 
   
   // Extra Jobs decision outcome
@@ -147,23 +162,23 @@ function dashboardUpdate(){
 		else {
 			document.getElementById('jobErrorBox').innerHTML = 'Total must equal 100%.';
 		}
-		if (jobIncome[0] >= jobIncome[1] && jobIncome[0] >= jobIncome[2]){
+		if (jobIncome1 >= jobIncome2 && jobIncome1 >= jobIncome3){
 			jobOutput = "Unfortunately, the price of fabric increased drastically, and as a result, your tailoring job failed and you lose that income stream.";
-			document.getElementById('jobLoss').innerHTML = jobIncome[0];
-			document.getElementById('jobLossPercent').innerHTML = Math.round(jobIncome[0]/jobTotalIncome*100);
-			money = jobTotalIncome - jobIncome[0];
+			document.getElementById('jobLoss').innerHTML = jobIncome1;
+			document.getElementById('jobLossPercent').innerHTML = Math.round(jobIncome1/jobTotalIncome*100);
+			money = jobTotalIncome - jobIncome1;
 		}
-		else if (jobIncome[1] > jobIncome[0] && jobIncome[1] >= jobIncome[2]){
+		else if (jobIncome2 > jobIncome1 && jobIncome2 >= jobIncome3){
 			jobOutput = "Nobody seems to need furniture this season.  You made nearly no money on your furniture-making business.";
-			document.getElementById('jobLoss').innerHTML = jobIncome[1];
-			document.getElementById('jobLossPercent').innerHTML = Math.round(jobIncome[1]/jobTotalIncome*100);
-			jobActualIncome = jobTotalIncome - jobIncome[1];
+			document.getElementById('jobLoss').innerHTML = jobIncome2;
+			document.getElementById('jobLossPercent').innerHTML = Math.round(jobIncome2/jobTotalIncome*100);
+			jobActualIncome = jobTotalIncome - jobIncome2;
 		}
 		else {
 			jobOutput = "Wild animals came through and killed your chickens and tore through your food storage.  All your cooking efforts have gone to waste and you have made no income from it this season.";
-			document.getElementById('jobLoss').innerHTML = jobIncome[2];
-			document.getElementById('jobLossPercent').innerHTML = Math.round(jobIncome[2]/jobTotalIncome*100);
-			jobActualIncome = jobTotalIncome - jobIncome[2];
+			document.getElementById('jobLoss').innerHTML = jobIncome3;
+			document.getElementById('jobLossPercent').innerHTML = Math.round(jobIncome3/jobTotalIncome*100);
+			jobActualIncome = jobTotalIncome - jobIncome3;
 		}
 		document.getElementById('jobOutcomeDiv').innerHTML = jobOutput;
 		document.getElementById('jobActualIncome').innerHTML = jobActualIncome;
@@ -375,7 +390,7 @@ function childrenKeep(n, keep){
 function diarrheaCheck(){
 	if (sanitation >= 75){
 	diarrheachild1 = 0;
-		document.getElementById('diarrheaContainer').innerHTML = ("Unfortunately, even though you used chlorine regularly in your drinking water and cooking, your youngest child has contracted a particularly bad case of diarrhea. What would you like to do?");
+		document.getElementById('diarrheaContainer').innerHTML = ("Unfortunately, even though you used chlorine regularly in your drinking water and cooking, your " +  "youngest daughter" + " has contracted a particularly bad case of diarrhea. What would you like to do?");
 	}
 	else if (sanitation < 75 && sanitation >= 25){
 		document.getElementById('diarrheaContainer').innerHTML = ("Unfortunately, you did not use chlorine as often as you should have and your youngest son and daughter have contracted a particularly bad case of diarrhea. What would you like to do?");
@@ -408,7 +423,3 @@ function neighborStop(check){
 		money = money - 40;
 	}
 }
-
-$(document).ready(function() {
- onLoad();
-});

@@ -37,7 +37,7 @@
 
 	</head>
 
-	<body>
+	<body onLoad="onLoad(); dashboardUpdate();">
    	<div id="wrapper">
     <div id="dashboardContainer"><div id="dashboard">Satisfaction: <span id="satisfactionField">0</span><span class="dashboardSpacer"> Income: $<span id="moneyField">0</span><span class="dashboardSpacer"> Food: <span id="foodField">0</span><span class="dashboardSpacer"> Health: <span id="healthField">0</span><span class="dashboardSpacer"> (Sanitation): <span id="sanitationField"></span></div></div>
 	<div id="revealWrapper">
@@ -66,7 +66,7 @@
         </section>
         <section>
             <h2>Background</h2>
-            <br>Colloquially known as “the Land of Kings”, Rajasthan is located in northern India and is the country's largest state.  Beyond the shadows of historic forts and grand palaces that adorn cities like Jodhpur, roughly three-quarters of the Rajasthan’s population of 68 million people live in rural areas. <br><br><input type="submit" value="Continue" class="navigate-right"/></i>
+            <br>Clloquially known as “the Land of Kings”, Rajasthan is located in northern India and is the country's largest state.  Beyond the shadows of historic forts and grand palaces that adorn cities like Jodhpur, roughly three-quarters of the Rajasthan’s population of 68 million people live in rural areas. <br><br><input type="submit" value="Continue" class="navigate-right"/></i>
         </section>
 
         <section>
@@ -87,24 +87,24 @@
 <div>
 <p class="smallText"><i>Allocate your time to different activities - time should add up to 100%.</i></p><br>
   <form>
-  <label for="jobAmount0">TAILORING: </label>
-  <input type="text" id="jobAmount0" class="sliderOutput" readonly>
-  <br><p class="smallText">Expected income: <span id="jobIncomeField0">$0</span><br>
-  Income per day worked: <span id="jobIncomeAverage0">$0</span><p>
-  <div class="sliderDiv" id="jobSlider0"></div>
-</div>
-  <label for="jobAmount1">FURNITURE-MAKING: </label>
+  <label for="jobAmount1">TAILORING: </label>
   <input type="text" id="jobAmount1" class="sliderOutput" readonly>
   <br><p class="smallText">Expected income: <span id="jobIncomeField1">$0</span><br>
   Income per day worked: <span id="jobIncomeAverage1">$0</span><p>
   <div class="sliderDiv" id="jobSlider1"></div>
-<div>
-<div>
-<label for="jobAmount2">COOKING: </label>
+</div>
+  <label for="jobAmount2">FURNITURE-MAKING: </label>
   <input type="text" id="jobAmount2" class="sliderOutput" readonly>
   <br><p class="smallText">Expected income: <span id="jobIncomeField2">$0</span><br>
   Income per day worked: <span id="jobIncomeAverage2">$0</span><p>
-  <div class="sliderDiv"><div id="jobSlider2"></div></div>
+  <div class="sliderDiv" id="jobSlider2"></div>
+<div>
+<div>
+<label for="jobAmount3">COOKING: </label>
+  <input type="text" id="jobAmount3" class="sliderOutput" readonly>
+  <br><p class="smallText">Expected income: <span id="jobIncomeField3">$0</span><br>
+  Income per day worked: <span id="jobIncomeAverage3">$0</span><p>
+  <div class="sliderDiv"><div id="jobSlider3"></div></div>
   Total: <input type="text" id="jobTotal" class="sliderOutput" value="0%" readonly><br>
   <p id="jobErrorBox" class="ui-state-error ui-corner-all"></p>
   <input type="submit" onClick="jobOutcome();" value="Make your decision."/>
@@ -162,121 +162,6 @@
                 <input type="submit" value="Continue" class="navigate-right"/>
         </section>
             <section>
-                <section>
-                    <h2>Planting Season</h2>
-                    <div>
-                        <br>
-                    </div>
-                    <div>You're getting ready for planting season, and you have some money to spend. &nbsp;You know you're going to have to buy food to last through the season, as well as buy seeds and maybe fertilizer. You will also need to buy assets such as a radio or housing materials, which can help you save for health emergencies, dowry, or education.<br><br><br><p class="smallText"><input type="submit" value="Next" class="navigate-down"/></p>
-                    </div>
-                </section>
-                <section>
-                    <h2>Food</h2>
-                    <div>
-                        <br>
-                        <i>(To keep your family satisfied, you want to keep your food levels above 100.  Below 50, your family will be very hungry, and below 25 is an extreme health risk.)</i>
-                        <br><br>
-                    </div>
-                    <div>Rice</div>
-                    <div><label for="foodAmount1">FOOD: </label>
-  <input type="text" id="foodAmount1" class="sliderOutput" readonly>
-  <br><p class="smallText">Cost: <span id="food1Field">$0</span><br>
-  Satisfaction: <span id="food1Field2">0</span><p>
-  <div class="sliderDiv"><div id="foodSlider1"></div></div>
-                    </div>
-                    <div>Vegetables</div>
-                    <div><label for="foodAmount2">FOOD: </label>
-  <input type="text" id="foodAmount2" class="sliderOutput" readonly>
-  <br><p class="smallText">Total Cost: <span id="food2Field">$0</span><br>
-  Satisfaction: <span id="food2Field2">0</span><p>
-  <div class="sliderDiv"><div id="foodSlider2"></div></div>
-                    </div>
-                    <div>Fruit</div>
-                    <div>
-                        <br>
-                    </div>
-                    <div>Sugar</div>
-                    Food Total: <input type="text" id="foodTotal" class="sliderOutput" value="0%" readonly><br>
-                    Satisfaction Total: <input type="text" id="foodSatTotal" class="sliderOutput" value="0%" readonly><br>
-                    <div><br><p class="smallText"><input type="submit" value="Next" class="navigate-down"/><br>
-                    <input type="submit" value="Previous" class="navigate-up"/></div></p>
-                </section>
-                <section>
-                    <h2>Farming</h2>
-                    <div>
-                        <br>
-                    </div>
-                    <div>
-                        <div>Seeds</div>
-                        <div>Quantity:</div>
-<form>
-  <div id="seedsRadio">
-    <input type="radio" id="seedsLow" name="radio" checked="checked" /><label for="seedsLow">Low ($30)</label>
-    <input type="radio" id="seedsMed" name="radio" /><label for="seedsMed">Medium ($75)</label>
-    <input type="radio" id="seedsHigh" name="radio" /><label for="seedsHigh">High ($150)</label>
-  </div>
-</form>
-
-
-                    <div>
-                        <br>
-                    </div>
-                    <div>Fertilizer</div>
-                    <form>
-  <div id="fertilizerRadio">
-    <input type="radio" id="fertilizerLow" name="radio" checked="checked" /><label for="fertilizerLow">Low ($30)</label>
-    <input type="radio" id="fertilizerMed" name="radio" /><label for="fertilizerMed">Medium ($75)</label>
-    <input type="radio" id="fertilizerHigh" name="radio" /><label for="fertilizerHigh">High ($150)</label>
-  </div>
-</form>
-
-            </div>
-                    <div><br><br><input type="submit" value="Next" class="navigate-down"/><br>
-                    <input type="submit" value="Previous" class="navigate-up"/></div>
-        </section>
-        <section>
-            <h2>Entertainment</h2>
-            <div>
-                <br>
-            </div>
-            <div>
-            Work is tough, and like any normal person, you need entertainment to lighten up life a little bit.
-            </div>
-                    <div><br><br><input type="submit" value="Next" class="navigate-down"/><br>
-                    <input type="submit" value="Previous" class="navigate-up"/></div>
-        </section>
-        <section>
-            <h2>Savings</h2>
-            <div>
-                <br>
-            </div>
-            <div>
-                Building up savings is difficult.  There aren't any local banks to store your money, and you don't want to literally stuff cash under the mattress.  Therefore, you know you have to save by buying assets like chickens, bricks for your house, a radio, or television.<br><br>
-                You also know that you will have to save for your future children's education as well as dowries for the girls.
-            </div>
-                    <div><br><br><input type="submit" value="I'm finished purchasing." class="navigate-right"/><br>
-                    <input type="submit" value="Previous" class="navigate-up"/></div>
-        </section>
-    </section>
-    <section>
-        <h2>Outcome</h2>
-<div>
-    <div>Outcome of Choices</div>
-    <div>
-        <br>
-    </div>
-    <div>Lessons behind the choice</div>
-    <div>
-        <br>
-    </div>
-    <div>Policymaking implications (tied back to first part of the game)</div>
-</div>
-<div>
-<br>
-<input type="submit" value="Continue" class="navigate-right"/>
-</div>
-</section>
-            <section>
         <h2>A Neighbor In Need</h2>
 <div>
 Because their crops failed, your neighbors can hardly eat. You see them sneaking and stealing some of your food.
@@ -321,104 +206,6 @@ Many of the poor support their other neighbors, family, or people in their ethni
                 <input type="submit" value="See More" class="navigate-down"/>
                 </div>
             </section>
-            <section>
-                <h2>First Child</h2>
-                <div id="childrenConceiveButton1">
-    <input type="submit" onClick="childrenConceive(1);" value="Have a child!"/>
-    </div>
-                <div id="childrenContainer1">
-                </div>
-                <div id="childrenGenderCheck1" class="hideOnload">
-                <input type="submit" onClick="genderCheck(1, true);" value="Yes ($10)"/> <input type="submit" onClick="genderCheck(1, false);" value="No ($0)"/>
-                </div>
-                <div id="childrenSliderContainer1" class="hideOnload"><br>
-                <label for="childrenYears1">YEARS IN SCHOOL: </label>
-				<input type="text" id="childrenYears1" class="sliderOutput" readonly><br>
-                <label for="childrenYears1">NET WORTH: </label>
-				<input type="text" id="childrenNetWorth1" class="sliderOutput" readonly><br>
-                <p class="smallText">+ Income from working at home: <span id="childrenManualLabor1"></span><br>
-                + Income from getting a job after school: <span id="childrenSkilledLabor1"></span><br>
-                - Cost of living: <span id="childrenLivingCost1"></span><br>
-                <span id="childrenDowry1"></span><br>
-                - Cost of school: <span id="childrenSchoolCost1"></span><br></p>
-                <div class="sliderDiv"><div id="childrenSlider1"></div></div>
-</div>
-                <div id="abortionContainer1" class="hideOnload"><br><input type="submit" onClick="childrenKeep(1, true);" value="Keep"/> <input type="submit" onClick="childrenKeep(1, false);" value="Abort ($50)"/><br></div>
-                <div>
-    <br>
-    <div id="childrenNext1" class="hideOnload">
-    <p class="smallText"><input type="submit" value="Next" onClick="diarrheaCheck();" class="navigate-down"/></p>
-    </div>
-    <div id="childrenDone1">
-    <input type="submit" value="I'm finished having kids." onClick="diarrheaCheck();" class="navigate-right"/><br><br><br><br><br><br><br><br><br><br>
-    </div>
-
-</div>
-            </section>
-            <section>
-                <h2>Second Child</h2>
-                <div id="childrenConceiveButton2">
-    <input type="submit" onClick="childrenConceive(2);" value="Have a child!"/>
-    </div>
-                <div id="childrenContainer2">
-                </div>
-                <div id="childrenGenderCheck2" class="hideOnload">
-                <input type="submit" onClick="genderCheck(2, true);" value="Yes ($10)"/> <input type="submit" onClick="genderCheck(2, false);" value="No ($0)"/>
-                </div>
-                <div id="childrenSliderContainer2" class="hideOnload"><br>
-                <label for="childrenYears2">YEARS IN SCHOOL: </label>
-				<input type="text" id="childrenYears2" class="sliderOutput" readonly><br>
-                <label for="childrenYears2">NET WORTH: </label>
-				<input type="text" id="childrenNetWorth2" class="sliderOutput" readonly><br>
-                <p class="smallText">+ Income from working at home: <span id="childrenManualLabor2"></span><br>
-                + Income from getting a job after school: <span id="childrenSkilledLabor2"></span><br>
-                - Cost of living: <span id="childrenLivingCost2"></span><br>
-                <span id="childrenDowry2"></span><br>
-                - Cost of school: <span id="childrenSchoolCost2"></span><br></p>
-                <div class="sliderDiv"><div id="childrenSlider2"></div></div>
-</div>
-                <div id="abortionContainer2" class="hideOnload"><br><input type="submit" onClick="childrenKeep(2, true);" value="Keep"/> <input type="submit" onClick="childrenKeep(2, false);" value="Abort ($50)"/><br></div>
-                <div>
-    <br>
-    <div id="childrenNext2" class="hideOnload">
-    <p class="smallText"><input type="submit" value="Next" onClick="diarrheaCheck();" class="navigate-down"/></p>
-    </div>
-    <div id="childrenDone2">
-    <input type="submit" value="I'm finished having kids." onClick="diarrheaCheck();" class="navigate-right"/><br><br><br><br><br><br><br><br><br><br>
-    </div>
-
-</div>
-            </section>
-        </section>
-    <section>
-        <h2>Lessons behind the choice</h2>
-<div>
-    <div>
-        <br>
-    </div>
-    <div>
-Factors that affect family composition include the health and gender of living children. The decision to have children (when, how many) is also hugely impacted by social norms and the actions of neighbors and family members. For the most part, the decision to have more children is a calculated economic decision. The decision dynamic is: more children aid in work around the house and are an investment in the future (can take care in old age), but more children incur education, health, dowry, and food costs, and can eventually be counterproductive in the home. In general, male babies are more desirable than female babies, leading to a trend of sex-selective abortion. It is quite common for women to discover the gender of their child via ultrasound, which runs around 300 Indian rupees. The decision to have an abortion often involves the desires of the father’s parents, although the decision can also jointly be made by the couple, as well. Home methods of abortion do exist, but are not as common as many women are aware that they are harmful/unreliable. Abortions run around 1,000-2,000 Indian rupees, which is often considered affordable in terms of money-saved by not having the child. 
-<br><br>
-For girls: cost of education, cost of health, cost of food, cost of dowry, aid around the house<br>
-For boys: cost of education, cost of health, cost of food, aid around the house, pay-off with dowry/job<br>
-<br><br>
-For girls, education is a plateau (primary education is desirable to a certain point [literacy], but beyond primary skills, it gets to the point where it is more beneficial for the girl to be at home working, learning household skills)
-For boys, more education increases job potential, generally seen as a good thing
-<br><br>
-All in all, decisions concerning children is a hugely calculated choice. 
-
-Sources:
-http://www.popcouncil.org/pdfs/SAReport.pdf
-http://www.unfpa.org/gender/docs/sexselection/UNFPA_Publication-39664.pdf
-
-
-</div>
-</div>
-<div>
-<br>
-<input type="submit" value="Continue" class="navigate-right"/>
-</div>
-</section>
             <section>
         <h2>Diarrhea</h2>
 <div>
